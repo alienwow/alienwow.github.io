@@ -561,25 +561,6 @@
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -611,15 +592,15 @@
       
         
           
-            <p>1、先要确定是否安装了PCRE库</p>
-<p>可以在这里<a href="http://www.pcre.org/" target="_blank" rel="external">下载</a>最新版本的pcre源码。<br>博主下载的是pcre-8.37版本，接下来进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf pcre-8.37.tar.gz &amp;&amp; <span class="built_in">cd</span> pcre-8.37</div><div class="line"><span class="variable">$sudo</span> ./configure --prefix=/usr/<span class="built_in">local</span> </div><div class="line"><span class="variable">$sudo</span> make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
-<p>2、安装Nginx</p>
-<p>先上<a href="http://nginx.org" target="_blank" rel="external">Nginx的官网</a>下载最新的稳定版本，博主使用1.10.1版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf nginx-1.10.1.tar.gz &amp;&amp; <span class="built_in">cd</span> nginx-1.10.1</div><div class="line"><span class="variable">$mkdir</span> /usr/<span class="built_in">local</span>/nginx</div><div class="line"><span class="variable">$sudo</span> chown 777 /usr/<span class="built_in">local</span>/nginx/logs/*.log</div><div class="line">    ./configure \</div><div class="line">    --prefix=/usr/<span class="built_in">local</span>/nginx \</div><div class="line">    --conf-path=/usr/<span class="built_in">local</span>/nginx/nginx.conf \</div><div class="line">    --with-http_ssl_module \</div><div class="line">    --with-http_stub_status_module</div><div class="line"><span class="variable">$sudo</span> make install</div></pre></td></tr></table></figure></p>
+            <h1 id="1、先要确定是否安装了PCRE库"><a href="#1、先要确定是否安装了PCRE库" class="headerlink" title="1、先要确定是否安装了PCRE库"></a>1、先要确定是否安装了PCRE库</h1><p>可以在这里<a href="http://www.pcre.org/" target="_blank" rel="external">下载</a>最新版本的pcre源码。<br>博主下载的是pcre-8.37版本，接下来进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf pcre-8.37.tar.gz &amp;&amp; <span class="built_in">cd</span> pcre-8.37</div><div class="line"><span class="variable">$sudo</span> ./configure --prefix=/usr/<span class="built_in">local</span> </div><div class="line"><span class="variable">$sudo</span> make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
+<h1 id="2、安装Nginx"><a href="#2、安装Nginx" class="headerlink" title="2、安装Nginx"></a>2、安装Nginx</h1><p>先上<a href="http://nginx.org" target="_blank" rel="external">Nginx的官网</a>下载最新的稳定版本，博主使用1.10.1版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf nginx-1.10.1.tar.gz &amp;&amp; <span class="built_in">cd</span> nginx-1.10.1</div><div class="line"><span class="variable">$mkdir</span> /usr/<span class="built_in">local</span>/nginx</div><div class="line"><span class="variable">$sudo</span> chown 777 /usr/<span class="built_in">local</span>/nginx/logs/*.log</div><div class="line">    ./configure \</div><div class="line">    --prefix=/usr/<span class="built_in">local</span>/nginx \</div><div class="line">    --conf-path=/usr/<span class="built_in">local</span>/nginx/nginx.conf \</div><div class="line">    --with-http_ssl_module \</div><div class="line">    --with-http_stub_status_module</div><div class="line"><span class="variable">$sudo</span> make install</div></pre></td></tr></table></figure></p>
 <p>添加软连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ln</span> <span class="_">-s</span>  /usr/<span class="built_in">local</span>/nginx/sbin/nginx /usr/<span class="built_in">local</span>/bin/nginx</div></pre></td></tr></table></figure></p>
-<h1 id="3、nginx的基本操作"><a href="#3、nginx的基本操作" class="headerlink" title="3、nginx的基本操作"></a>3、nginx的基本操作</h1><p>启动nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> nginx</div></pre></td></tr></table></figure></p>
+<h1 id="3、nginx的基本操作"><a href="#3、nginx的基本操作" class="headerlink" title="3、nginx的基本操作"></a>3、nginx的基本操作</h1><p>================</p>
+<p>启动nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> nginx</div></pre></td></tr></table></figure></p>
 <p>停止nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> nginnginx <span class="_">-s</span> stop</div></pre></td></tr></table></figure></p>
 <p>重启nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> nginx <span class="_">-s</span> reload</div></pre></td></tr></table></figure></p>
-<h1 id="4、nginx的配置"><a href="#4、nginx的配置" class="headerlink" title="4、nginx的配置"></a>4、nginx的配置</h1><p>修改nginx配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> vi /usr/<span class="built_in">local</span>/nginx/nginx.conf</div></pre></td></tr></table></figure></p>
+<h1 id="4、nginx的配置"><a href="#4、nginx的配置" class="headerlink" title="4、nginx的配置"></a>4、nginx的配置</h1><p>=============</p>
+<p>修改nginx配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> vi /usr/<span class="built_in">local</span>/nginx/nginx.conf</div></pre></td></tr></table></figure></p>
 <p>配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">#user  nobody;</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">    #access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        #charset koi8-r;</div><div class="line"></div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   /Users/Wenhao.Wu/WebSites;</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #</div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
           
@@ -735,6 +716,42 @@
                     <i class="fa fa-fw fa-globe"></i>
                   
                   GitLab
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/370380908" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2120106463" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/alienwow/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/alienwow" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
                 </a>
               </span>
             
