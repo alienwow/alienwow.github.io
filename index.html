@@ -288,6 +288,136 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/24/DebugVSIX/" itemprop="url">
+                  如何调试VSIX程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-24T17:34:16+08:00" content="2017-02-24">
+              2017-02-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/VisualStudio/" itemprop="url" rel="index">
+                    <span itemprop="name">VisualStudio</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/24/DebugVSIX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/DebugVSIX/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/24/DebugVSIX/" class="leancloud_visitors" data-flag-title="如何调试VSIX程序">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">被围观 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近日有个同事找我要公司框架模版的 VisualStudio 插件。<br>由于很长时间没有维护框架模版生成器的代码，忘记如何配置项目，特地在此记录。</p>
+<h2 id="项目文件配置"><a href="#项目文件配置" class="headerlink" title="项目文件配置"></a>项目文件配置</h2><p>进到项目的设置界面，切换到Debug(调试)选项卡，然后修改 <code>启动实验实例</code>、<code>命令行参数</code> 两项内容 – <a href="https://msdn.microsoft.com/zh-cn/library/bb166560.aspx" target="_blank" rel="external">MSDN</a><br>启动外部程序：<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe</code><br>命令行参数：<code>/rootsuffix wuwh</code><br>其中 <code>/rootsuffix</code> 后面的 <code>wuwh</code> 是实验实例的名字，可以自定义<br>详情请看图<br><img src="/assets/VsixDebugConfig.png" style="height:90px;width:120px;" alt="调试vsix项目配置"></p>
+<h2 id="VS插件最终安装位置"><a href="#VS插件最终安装位置" class="headerlink" title="VS插件最终安装位置"></a>VS插件最终安装位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">以VS2015为例</div><div class="line">C:\Users\%UserName%\AppData\Local\Microsoft\VisualStudio\14.0</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/22/Config-remote-for-fork/" itemprop="url">
                   如何与fork源进行同步？
                 </a>
@@ -367,7 +497,7 @@
       
         
           
-            <p>具体的设置方法就是在配置一个remote，其方法类似与博主之前的一片文章<a href="http://git.walkingtec.cn/snippets/2" target="_blank" rel="external">GitHub与GitLab之间同步</a></p>
+            <p>具体的设置方法就是在配置一个remote，其方法类似于博主之前的一片文章<a href="http://git.walkingtec.cn/snippets/2" target="_blank" rel="external">GitHub与GitLab之间同步</a></p>
 <p>先使用命令<code>git remote -v</code>查看一下已经设置的remote地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> remote -v</div><div class="line"><span class="comment">#origin	git@git.walkingtec.cn:wuwh/TestProject.git (fetch)</span></div><div class="line"><span class="comment">#origin	git@git.walkingtec.cn:wuwh/TestProject.git (push)</span></div></pre></td></tr></table></figure></p>
 <p>添加fork下来的源目录地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> remote add upstream git@git.walkingtec.cn:Master/TestProject.git</div></pre></td></tr></table></figure></p>
 <p>然后是同步fork源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> fetch upstream</div></pre></td></tr></table></figure></p>
@@ -579,6 +709,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -619,7 +768,7 @@
       
         
           
-            <h1 id="1、先要确定是否安装了PCRE库"><a href="#1、先要确定是否安装了PCRE库" class="headerlink" title="1、先要确定是否安装了PCRE库"></a>1、先要确定是否安装了PCRE库</h1><p>可以在这里<a href="http://www.pcre.org/" target="_blank" rel="external">下载</a>最新版本的pcre源码。<br>博主下载的是pcre-8.37版本，接下来进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf pcre-8.37.tar.gz &amp;&amp; <span class="built_in">cd</span> pcre-8.37</div><div class="line"><span class="variable">$sudo</span> ./configure --prefix=/usr/<span class="built_in">local</span> </div><div class="line"><span class="variable">$sudo</span> make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
+            <h1 id="1、先要确定是否安装了PCRE库"><a href="#1、先要确定是否安装了PCRE库" class="headerlink" title="1、先要确定是否安装了PCRE库"></a>1、先要确定是否安装了PCRE库</h1><p>可以在这里<a href="http://www.pcre.org/" target="_blank" rel="external">下载</a>最新版本的pcre源码。<br>博主下载的是pcre-8.37版本，接下来进行安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf pcre-8.37.tar.gz &amp;&amp; <span class="built_in">cd</span> pcre-8.37</div><div class="line"><span class="variable">$sudo</span> ./configure --prefix=/usr/<span class="built_in">local</span></div><div class="line"><span class="variable">$sudo</span> make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
 <h1 id="2、安装Nginx"><a href="#2、安装Nginx" class="headerlink" title="2、安装Nginx"></a>2、安装Nginx</h1><p>先上<a href="http://nginx.org" target="_blank" rel="external">Nginx的官网</a>下载最新的稳定版本，博主使用1.10.1版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cd</span> ~/Desktop/</div><div class="line"><span class="variable">$tar</span> xzf nginx-1.10.1.tar.gz &amp;&amp; <span class="built_in">cd</span> nginx-1.10.1</div><div class="line"><span class="variable">$mkdir</span> /usr/<span class="built_in">local</span>/nginx</div><div class="line"><span class="variable">$sudo</span> chown 777 /usr/<span class="built_in">local</span>/nginx/logs/*.log</div><div class="line">    ./configure \</div><div class="line">    --prefix=/usr/<span class="built_in">local</span>/nginx \</div><div class="line">    --conf-path=/usr/<span class="built_in">local</span>/nginx/nginx.conf \</div><div class="line">    --with-http_ssl_module \</div><div class="line">    --with-http_stub_status_module</div><div class="line"><span class="variable">$sudo</span> make install</div></pre></td></tr></table></figure></p>
 <p>添加软连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ln</span> <span class="_">-s</span>  /usr/<span class="built_in">local</span>/nginx/sbin/nginx /usr/<span class="built_in">local</span>/bin/nginx</div></pre></td></tr></table></figure></p>
 <h1 id="3、nginx的基本操作"><a href="#3、nginx的基本操作" class="headerlink" title="3、nginx的基本操作"></a>3、nginx的基本操作</h1><p>================</p>
@@ -698,7 +847,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -706,7 +855,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -715,7 +864,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -738,7 +887,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://git.alienwow.cc/u/wuwh" target="_blank" title="GitLab">
+                <a href="http://git.walkingtec.cn/u/wuwh" target="_blank" title="GitLab">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -821,16 +970,12 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  Copyrights &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">轻狂书生</span>
-</div>
-
-<div>
-  备案信息：京ICP备16041040号
+  <span class="author" itemprop="copyrightHolder">轻狂书生 . All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备16041040号</span>
 </div>
 
 <div class="powered-by">
