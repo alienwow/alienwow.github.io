@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://alienwow.cc/2018/01/mongodb-common-commands/</loc>
-    <lastmod>2018-09-20T08:37:09.000Z</lastmod>
+    <loc>http://alienwow.cc/2018/10/deploy-confirm/</loc>
+    <lastmod>2018-10-19T01:38:08.000Z</lastmod>
   </url>  <url>
     <loc>http://alienwow.cc/2018/01/git-common-commands/</loc>
-    <lastmod>2018-09-19T08:37:09.000Z</lastmod>
+    <lastmod>2018-10-15T02:30:09.000Z</lastmod>
+  </url>  <url>
+    <loc>http://alienwow.cc/2018/01/mongodb-common-commands/</loc>
+    <lastmod>2018-09-20T08:37:09.000Z</lastmod>
   </url>  <url>
     <loc>http://alienwow.cc/2017/02/DebugVSIX/</loc>
     <lastmod>2017-07-14T12:17:39.479Z</lastmod>

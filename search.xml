@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[部署生产环境shell脚本]]></title>
+    <url>%2F2018%2F10%2Fdeploy-confirm%2F</url>
+    <content type="text"><![CDATA[之前写了个发布生产及测试环境的shell脚本，前端的同事一不小心就发布到线上去了，现在特地给他写了个发布线上带确认脚本。##123456789101112#!/bin/bashecho -e "\033[41;36m Make sure to deploy to the production environment. ? Type 'y' to deploy, type 'n' to quit ...\033[0m"read replyif [[ $reply != 'y' ]]; thenecho -e "\033[41;36m quit ...\033[0m"elseecho -e "\033[41;36m Ready to deploy to production ...\033[0m"## 在这里添加你要发布到生产环境的 shell 脚本echo -e "\033[41;36m Deployment to production completion...\033[0m"fi]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mongodb 常用命令]]></title>
     <url>%2F2018%2F01%2Fmongodb-common-commands%2F</url>
     <content type="text"><![CDATA[基本操作连接数据库1./mongo 127.0.0.1:7003/admin -u admin -p认证1db.auth('userName','pwd')数据库操作12# 查看数据库show dbs用户管理1234567891011121314151617181920212223242526272829303132# 查看用户show users# 创建用户use admindb.createUser( &#123; user: "root", pwd: "abcd-1234", roles: [ &#123; role: "root", db: "admin" &#125; ] &#125;)# 删除用户use dbNamedb.dropUser("userName")# 修改密码 # 方法1：db.changeUserPassword("userName","newPwd") # 方法2：db.updateUser("userName",&#123;pwd:"newPwd"&#125;)# 修改权限db.updateUser("userName",&#123;roles:[&#123;role:"read",db:"testDB"&#125;]&#125;)# 注：updateuser 它是完全替换之前的值，如果要新增或添加 roles 而不是代替它 # 添加权限db.grantRolesToUser("userName", [&#123;role:"readWrite", db:"testDB"&#125;,&#123;role:"read", db:"testDB"&#125;])# 删除权限db.revokeRolesFromUser("userName",[&#123;role:"read", db:"testDB"&#125;])权限详解内建角色数据库用户角色： read、readWrite数据库管理角色： dbAdmin、dbOwner、userAdmin集群管理角色： clusterAdmin、clusterManager、clusterMonitor、hostManager备份恢复角色： backup、restore所有数据库角色： readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase超级用户角色： root；这里还有几个角色间接或直接提供了系统超级用户的访问（dbOwner 、userAdmin、userAdminAnyDatabase）内部角色： __system角色说明Read： 允许用户读取指定数据库readWrite： 允许用户读写指定数据库dbAdmin： 允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profileuserAdmin： 允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户dbOwner： 允许在当前DB中执行任意操作readAnyDatabase： 赋予用户所有数据库的读权限，只在admin数据库中可用readWriteAnyDatabase： 赋予用户所有数据库的读写权限，只在admin数据库中可用userAdminAnyDatabase： 赋予用户所有数据库管理User的权限，只在admin数据库中可用dbAdminAnyDatabase： 赋予管理所有数据库的权限，只在admin数据库中可用root： 超级账号，超级权限，只在admin数据库中可用。集群管理角色clusterAdmin： 赋予管理集群的最高权限，只在admin数据库中可用clusterManager： 赋予管理和监控集群的权限clusterMonitor： 赋予监控集群的权限，对监控工具具有 readonly 的权限hostManager： 赋予管理Server数据导入导出csc 导入 mongo1234mongoimport -h [host] --port [port] -u [userName] -p [password] -d [dbName] -c [collectionName] --type csv --headerline --file [importPath]# 例子：mongoimport -h 127.0.0.1 --port 7003 -u edudot -p abcd-1234 -d edudot -c users --type csv --headerline --file "D:\Users\Wenhao.Wu\Desktop\users.csv"mongo 导出1234mongoexport -h [host] --port [port] -u [userName] -p [password] -d [dbName] -c [collectionName] -f [字段，多个资源英文逗号分隔] --type=csv -o [exportPath] --query=[queryString] --limit=[limitNum]# 例子：mongoexport -h 127.0.0.1 --port 7003 -u admin -p abcd-1234 -d edudot -c fc_msg -f _id,category --type=csv -o "D:\Users\Wenhao.Wu\Desktop\test.csv" --query="&#123;'_id':'asfd'&#125;" --limit=500参考文章piaoxuexieMongoDB 创建用户 修改权限 修改密码 删除用户]]></content>
@@ -15,7 +27,7 @@
   <entry>
     <title><![CDATA[Git常用命令]]></title>
     <url>%2F2018%2F01%2Fgit-common-commands%2F</url>
-    <content type="text"><![CDATA[Branch1234567891011121314151617181920212223242526## 创建分支git branch [newBranchName] [srcBranchName]## 推送本地分支到远程服务器git push --set-upstream origin [newBranchName]## 切换分支git checkout [branchName]## 创建分支并切换git checkout -b [newBranchName] [srcBranchName]## 删除本地分支git branch -d [branchName]## 强制删除本地分支git branch -D [branchName]## 删除远程分支git push origin :[branchName]## 合并分支# 将 feature/f1 分支合并到 develop 分支上git checkout developgit merge feature/f1Tag123456789101112## 创建 Taggit tag -a [tagName] [-m 'message']## 推送本地标签到远程服务器git push origin --tags## 删除本地 Taggit tag -d [tagName]## 删除远程 Taggit push origin :[tagName]查看 git 操作历史123# 查看所有记录的 HEAD 历史# 可以用于查找丢失的代码git reflog]]></content>
+    <content type="text"><![CDATA[Branch1234567891011121314151617181920212223242526272829## 创建分支git branch [newBranchName] [srcBranchName]## 推送本地分支到远程服务器git push --set-upstream origin [newBranchName]## 切换分支git checkout [branchName]## 创建分支并切换git checkout -b [newBranchName] [srcBranchName]## 删除本地分支git branch -d [branchName]## 强制删除本地分支git branch -D [branchName]## 删除远程分支git push origin :[branchName]## 删除本地的远程分支git branch -r -D origin/[branchName]## 合并分支# 将 feature/f1 分支合并到 develop 分支上git checkout developgit merge feature/f1Tag123456789101112## 创建 Taggit tag -a [tagName] [-m 'message']## 推送本地标签到远程服务器git push origin --tags## 删除本地 Taggit tag -d [tagName]## 删除远程 Taggit push origin :[tagName]查看 git 操作历史123# 查看所有记录的 HEAD 历史# 可以用于查找丢失的代码git reflog]]></content>
       <categories>
         <category>Git</category>
       </categories>
