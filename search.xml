@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Error Project file is incomplete. Expected imports are missing. 的解决方案]]></title>
+    <url>%2F2018%2F10%2FProject-file-is-incomplete-Solution%2F</url>
+    <content type="text"><![CDATA[刚刚打开一个 .net core 的项目，Visual Studio 一直提示我无法打开项目，重新加载也无济于事。错误提示如下所示1E:\xxx\Git\xxx\src\xxx\xxx.csproj : error : Project file is incomplete. Expected imports are missing.检查了一遍所有的解决方案文件之后才发现我在 global.json 文件中添加了如下设置12345&#123; "sdk": &#123; "version": "2.1.301" &#125;&#125;在此错误发生之前，我清理了一下安装的 SDK，其中使用的 v2.1.301 正在被我卸载了。所以将此配置删除或者修改成本地存在的 SDK 版本即可。]]></content>
+      <categories>
+        <category>ViaualStudio</category>
+      </categories>
+      <tags>
+        <tag>ViaualStudio</tag>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[部署生产环境shell脚本]]></title>
     <url>%2F2018%2F10%2Fdeploy-confirm%2F</url>
     <content type="text"><![CDATA[之前写了个发布生产及测试环境的shell脚本，前端的同事一不小心就发布到线上去了，现在特地给他写了个发布线上带确认脚本。123456789101112#!/bin/bashecho -e "\033[41;36m Make sure to deploy to the production environment. ? Type 'y' to deploy, type 'n' to quit ...\033[0m"read replyif [[ $reply != 'y' ]]; thenecho -e "\033[41;36m quit ...\033[0m"elseecho -e "\033[41;36m Ready to deploy to production ...\033[0m"## 在这里添加你要发布到生产环境的 shell 脚本echo -e "\033[41;36m Deployment to production completion...\033[0m"fi]]></content>
